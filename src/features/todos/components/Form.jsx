@@ -6,39 +6,16 @@ import { addTodo } from "../../../redux/modules/todos.js";
 import { v4 as uuidv4 } from "uuid";
 
 const Form = () => {
-  //const id = nextId();
-  /* 
-  const [todo, setTodo] = useState({
-    id: 0,
-    title: "",
-    body: "",
-    isDone: false,
-  }); */
-
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
 
-  /*   const onChangeHandler = (event) => {
-    const { name, value } = event.target;
-    setTodo({ ...todo, [name]: value });
-    console.log(name, value);
-  };
- */
   const dispatch = useDispatch();
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
-    /*     if (title.trim() === "" || body.trim() === "") return; */
     dispatch(addTodo({ title, body, id: uuidv4() }));
     setTitle("");
     setBody("");
-    //console.log(todo.title, todo.body);
-    /*     setTodo({
-      id: 0,
-      title: "",
-      body: "",
-      isDone: false,
-    }); */
   };
 
   return (
